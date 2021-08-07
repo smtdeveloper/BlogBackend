@@ -33,7 +33,7 @@ namespace WebAPI
         {
             services.AddCors();
             services.AddControllers();
-            services.AddDbContext<ProjectDbContext, MySqlDbContext>(ServiceLifetime.Transient);
+            services.AddDbContext<ProjectDbContext, PostgreDbContext>(ServiceLifetime.Transient);
             services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
 
             #region Jwt
