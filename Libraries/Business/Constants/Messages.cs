@@ -1,7 +1,4 @@
-﻿using Core.Entities.Concrete;
-using System.Runtime.Serialization;
-
-namespace Business.Constants
+﻿namespace Business.Constants
 {
     public static class Messages
     {
@@ -46,5 +43,9 @@ namespace Business.Constants
         public static string UsersListed = "Kullanıcılar listelendi.";
         public static string YouAreNotAllowedToUseSystem = "Sistemi kullanma izniniz yok.";
         public static string YouAreAllowedToUseSystem = "Sistemi kullanma izniniz var.";
+        public static string CategoryAdded = "Kategori başarıyla eklendi.";
+        public static string CategoryNotAdded = "Kategori kayıt edilemedi.";
+        internal static string CategoryNameAlreadyExist = "Kategori Adı zaten kullanılıyor.";
+        internal static string CategoryNameAvailable = "Kategori Adı kullanılabilir.";
     }
 }

@@ -29,6 +29,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfUserDal>().As<IUserDal>();
             builder.RegisterType<UserManager>().As<IUserService>();
 
+            builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
+            builder.RegisterType<CategoryManager>().As<ICategoryService>();
+
             builder.RegisterAutoMapper(Assembly.GetExecutingAssembly());
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
