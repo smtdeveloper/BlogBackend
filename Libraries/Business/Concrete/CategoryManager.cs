@@ -7,6 +7,7 @@ using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.Dtos.Category;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Business.Concrete
@@ -53,6 +54,17 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CategoryUpdated);
 
 
+        }
+
+        public async Task<IDataResult<List<CategoryDto>>> GetAllAsync()
+        {
+            var categories = await _categoryDal.GetAllAsync();
+            if (categories.Count == 0)
+                return new ErrorDataResult<List<CategoryDto>>(null, "Kategoriler bulunamadı.");
+
+            var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
+
+            return new SuccessDataResult<List<CategoryDto>>(categoryDtos, "Kategoriler listelendi.");
         }
 
         private async Task<IResult> CheckCategoryNameExistAsync(string categoryName)
