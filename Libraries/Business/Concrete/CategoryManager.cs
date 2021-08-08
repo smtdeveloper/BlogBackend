@@ -36,7 +36,7 @@ namespace Business.Concrete
 
             return new SuccessResult(Messages.CategoryAdded);
         }
-
+         
         public async Task<IResult> UpdateAsync(CategoryUpdateDto updateDto)
         {
             var entity = await _categoryDal.GetAsync(e => e.SecondaryId == updateDto.SecondaryId);

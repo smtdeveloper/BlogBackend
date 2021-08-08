@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
                 return BadRequest(categoriesResult);
 
             return Ok(categoriesResult);
-            return Ok(addResult);
+           
         }
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateAsync(CategoryUpdateDto updateDto)
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
                 return BadRequest(updateResult);
 
             return Ok(updateResult);
-            return Ok(addResult);
+            
         }
     }
 }
