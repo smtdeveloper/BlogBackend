@@ -24,7 +24,17 @@ namespace WebAPI.Controllers
             if (!addResult.Success)
                 return BadRequest(addResult);
 
-            return Ok(addDto);
+            return Ok(addResult);
+        }
+
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            var categoriesResult = await _categoryService.GetAllAsync();
+            if (!categoriesResult.Success)
+                return BadRequest(categoriesResult);
+
+            return Ok(categoriesResult);
         }
     }
 }
