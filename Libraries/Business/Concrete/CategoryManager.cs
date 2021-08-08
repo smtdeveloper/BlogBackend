@@ -7,6 +7,7 @@ using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.Dtos.Category;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Business.Concrete
@@ -30,10 +31,40 @@ namespace Business.Concrete
             Category categoryToAdd = _mapper.Map<Category>(addDto);
 
             bool addResult = await _categoryDal.AddAsync(categoryToAdd);
-            if (addResult)
-                return new SuccessResult(Messages.CategoryAdded);
+            if (!addResult)
+                return new ErrorResult(Messages.CategoryNotAdded);
 
-            return new ErrorResult(Messages.CategoryNotAdded);
+            return new SuccessResult(Messages.CategoryAdded);
+        }
+
+        public async Task<IResult> UpdateAsync(CategoryUpdateDto updateDto)
+        {
+            var entity = await _categoryDal.GetAsync(e => e.SecondaryId == updateDto.SecondaryId);
+            if (entity==null)
+            {
+                return new ErrorResult(Messages.CategoryNotFound);
+            }
+            
+            _mapper.Map<CategoryUpdateDto, Category>(updateDto, entity);
+
+            bool updateResult = await _categoryDal.UpdateAsync(entity);
+            if (!updateResult)
+                return new ErrorResult(Messages.CategoryNotUpdated);
+
+            return new SuccessResult(Messages.CategoryUpdated);
+
+
+        }
+
+        public async Task<IDataResult<List<CategoryDto>>> GetAllAsync()
+        {
+            var categories = await _categoryDal.GetAllAsync();
+            if (categories.Count == 0)
+                return new ErrorDataResult<List<CategoryDto>>(null, "Kategoriler bulunamadı.");
+
+            var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
+
+            return new SuccessDataResult<List<CategoryDto>>(categoryDtos, "Kategoriler listelendi.");
         }
 
         private async Task<IResult> CheckCategoryNameExistAsync(string categoryName)

@@ -12,6 +12,13 @@ namespace Business.Mappers.AutoMapper.Profiles
             CreateMap<CategoryAddDto, Category>()
                 .ForMember(p => p.CreatedAt, mopt => mopt.MapFrom(o => DateTime.Now))
                 .ForMember(p => p.SecondaryId, mopt => mopt.MapFrom(o => Guid.NewGuid()));
+
+            CreateMap<Category, CategoryDto>();
+
+            CreateMap<CategoryUpdateDto, Category>()
+                .ForMember(p => p.UpdatedAt, mopt => mopt.MapFrom(o => DateTime.Now))
+                .ForMember(p => p.SecondaryId, mopt => mopt.Ignore());
+
         }
     }
 }

@@ -26,5 +26,26 @@ namespace WebAPI.Controllers
 
             return Ok(addResult);
         }
+
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            var categoriesResult = await _categoryService.GetAllAsync();
+            if (!categoriesResult.Success)
+                return BadRequest(categoriesResult);
+
+            return Ok(categoriesResult);
+            return Ok(addResult);
+        }
+        [HttpPut("Update")]
+        public async Task<IActionResult> UpdateAsync(CategoryUpdateDto updateDto)
+        {
+            var updateResult = await _categoryService.UpdateAsync(updateDto);
+            if (!updateResult.Success)
+                return BadRequest(updateResult);
+
+            return Ok(updateResult);
+            return Ok(addResult);
+        }
     }
 }
