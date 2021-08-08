@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
             if (!addResult.Success)
                 return BadRequest(addResult);
 
-            return Ok(addDto);
+            return Ok(addResult);
         }
     }
 }
