@@ -24,7 +24,16 @@ namespace WebAPI.Controllers
             if (!addResult.Success)
                 return BadRequest(addResult);
 
-            return Ok(addDto);
+            return Ok(addResult);
+        }
+        [HttpPut("Update")]
+        public async Task<IActionResult> UpdateAsync(CategoryUpdateDto updateDto)
+        {
+            var updateResult = await _categoryService.UpdateAsync(updateDto);
+            if (!updateResult.Success)
+                return BadRequest(updateResult);
+
+            return Ok(updateResult);
         }
     }
 }
