@@ -3,13 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Dtos.Category
+namespace Entities.Dtos.Role
 {
-   public class CategoryUpdateDto :IDto
+   public  class RoleDto :IDto
     {
         public Guid SecondaryId { get; set; }
-        public string Name { get; set; }
-        public DateTime UpdatedAt { get; set; }
 
+        public string  Name { get; set; }
     }
 }

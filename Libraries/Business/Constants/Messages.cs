@@ -51,5 +51,10 @@
         public static string CategoryUpdated = "Kategori Güncellendi";
 
         public static string CategoryNotFound = "Kategori bulunamadı";
+        internal static string CommentNotAdded;
+        internal static string CommentAdded;
+
+        public static string CommentContentAlreadyExist { get; internal set; }
+        public static string CommentContentAvailable { get; internal set; }
     }
 }

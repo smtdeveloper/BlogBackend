@@ -3,19 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Concrete
+namespace Entities.Dtos.Comment
 {
-   public class Comment :IEntity
+    public class CommentAddDto :IDto
+
     {
-        public Guid Id { get; set; }
-        public Guid SecondaryId { get; set; }
         public Guid ArticleId { get; set; }
-        public string  Content { get; set; }
+        public string Content { get; set; }
         public bool IsApproved { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-        public DateTime? DeletedAt { get; set; }
 
     }
 }
