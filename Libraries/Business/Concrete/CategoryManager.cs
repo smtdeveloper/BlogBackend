@@ -60,11 +60,11 @@ namespace Business.Concrete
         {
             var categories = await _categoryDal.GetAllAsync();
             if (categories.Count == 0)
-                return new ErrorDataResult<List<CategoryDto>>(null, "Kategoriler bulunamadı.");
+                return new ErrorDataResult<List<CategoryDto>>(null, Messages.CategoryNotList);
 
             var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
 
-            return new SuccessDataResult<List<CategoryDto>>(categoryDtos, "Kategoriler listelendi.");
+            return new SuccessDataResult<List<CategoryDto>>(categoryDtos,Messages.CategoryList);
         }
 
         private async Task<IResult> CheckCategoryNameExistAsync(string categoryName)

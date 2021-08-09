@@ -51,5 +51,15 @@
         public static string CategoryUpdated = "Kategori Güncellendi";
 
         public static string CategoryNotFound = "Kategori bulunamadı";
+        public static string ArticleAdded= "Makale başarıyla eklendi.";
+        public static string ArticleNotAdded = "Makale  Eklenmedi - HATA.";
+        public  static string ArticleNotList= "Makaleler Listenemedi";
+        public static string ArticleList = "Makaleler Listelendi";
+        public  static string CategoryNotList= "Kategoriler Bulunamadı";
+        public static string CategoryList = "Kategoriler Listelendi";
+        public static string ArticleNotfound= "Makale bulunamadı";
+        public static string ArticleNotUpdate="Makale Güncellenmedi";
+        public static string ArticleUpdate = "Makale Güncellendi";
+
     }
 }
