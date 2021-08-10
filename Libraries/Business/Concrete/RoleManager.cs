@@ -1,5 +1,8 @@
-﻿using Business.Abstract;
+﻿using AutoMapper;
+using Business.Abstract;
 using Core.Utilities.Results.Abstract;
+using DataAccess.Abstract;
+using Entities.Concrete;
 using Entities.Dtos.Role;
 using System;
 using System.Collections.Generic;
@@ -10,9 +13,18 @@ namespace Business.Concrete
 {
     public class RoleManager : IRoleService
     {
-        public Task<IResult> AddAsync(RoleAddDto addDto)
+        private readonly IRoleDal _roleDal;
+        private readonly IMapper _mapper;
+
+        public RoleManager(IRoleDal roleDal, IMapper mapper)
+        {
+            _mapper = mapper;
+            _roleDal = roleDal;
+        }
+        public async Task<IResult> AddAsync(RoleAddDto addDto)
         {
             throw new NotImplementedException();
+
         }
 
         public Task<IDataResult<List<RoleDto>>> GetAllAsync()

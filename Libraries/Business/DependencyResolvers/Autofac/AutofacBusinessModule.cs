@@ -35,6 +35,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfArticleDal>().As<IArticleDal>();
             builder.RegisterType<ArticleManager>().As<IArticleService>();
 
+            builder.RegisterType<EfRoleDal>().As<IRoleDal>();
+            builder.RegisterType<RoleManager>().As<IRoleService>(); 
+            
+            builder.RegisterType<EfCommentDal>().As<ICommentDal>();
+            builder.RegisterType<CommentManager>().As<ICommentService>();
+
             builder.RegisterAutoMapper(Assembly.GetExecutingAssembly());
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
