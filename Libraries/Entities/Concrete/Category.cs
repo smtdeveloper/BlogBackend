@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Abstract;
 using System;
+using System.Collections.Generic;
 
 namespace Entities.Concrete
 {
@@ -12,5 +13,8 @@ namespace Entities.Concrete
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
+
+
+        public List<ArticleCategory> ArticleCategories { get; set; }
     }
 }

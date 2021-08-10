@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework.Configurations
 {
-   public class ArticleConfiguration : IEntityTypeConfiguration<Article>
+    public class ArticleConfiguration : IEntityTypeConfiguration<Article>
     {
         public void Configure(EntityTypeBuilder<Article> builder)
         {
@@ -21,6 +21,8 @@ namespace DataAccess.Concrete.EntityFramework.Configurations
             builder.Property(p => p.CreatedAt).IsRequired();
             builder.Property(p => p.UpdatedAt).IsRequired(false);
             builder.Property(p => p.DeletedAt).IsRequired(false);
+
+            builder.HasMany(p => p.ArticleCategories).WithOne(p => p.Article).HasForeignKey(p => p.ArticleId);
 
             builder.HasQueryFilter(p => p.IsDeleted == false);
         }

@@ -3,15 +3,17 @@ using System;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace DataAccess.Concrete.EntityFramework.Migrations
+namespace DataAccess.Migrations.PostgreDb
 {
     [DbContext(typeof(PostgreDbContext))]
-    partial class PostgreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210810135346_addColumnToCommentTable")]
+    partial class addColumnToCommentTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,27 +144,6 @@ namespace DataAccess.Concrete.EntityFramework.Migrations
                     b.ToTable("Articles");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.ArticleCategory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("ArticleId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ArticleId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("ArticleCategory");
-                });
-
             modelBuilder.Entity("Entities.Concrete.Category", b =>
                 {
                     b.Property<Guid>("Id")
@@ -255,35 +236,6 @@ namespace DataAccess.Concrete.EntityFramework.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.ArticleCategory", b =>
-                {
-                    b.HasOne("Entities.Concrete.Article", "Article")
-                        .WithMany("ArticleCategories")
-                        .HasForeignKey("ArticleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Concrete.Category", "Category")
-                        .WithMany("ArticleCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Article");
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.Article", b =>
-                {
-                    b.Navigation("ArticleCategories");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.Category", b =>
-                {
-                    b.Navigation("ArticleCategories");
                 });
 #pragma warning restore 612, 618
         }
