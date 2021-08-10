@@ -22,7 +22,7 @@
         public static string OperationClaimsNotFoundForUser = "Kullanıcının yetkileri bulunamadı.";
         public static string OperationClaimsListedForUser = "Kullanıcının yetkileri listelendi.";
 
-       
+
         public static string PasswordsDoNotMatch = "Şifreler eşleşmedi.";
         public static string PasswordsMatched = "Şifreler eşleşti.";
         public static string UserOperationClaimNotAdded = "Kullanıcı Yetkisi kayıt edilemedi.";
@@ -45,7 +45,21 @@
         public static string YouAreAllowedToUseSystem = "Sistemi kullanma izniniz var.";
         public static string CategoryAdded = "Kategori başarıyla eklendi.";
         public static string CategoryNotAdded = "Kategori kayıt edilemedi.";
-        internal static string CategoryNameAlreadyExist = "Kategori Adı zaten kullanılıyor.";
-        internal static string CategoryNameAvailable = "Kategori Adı kullanılabilir.";
+        public static string CategoryNameAlreadyExist = "Kategori Adı zaten kullanılıyor.";
+        public static string CategoryNameAvailable = "Kategori Adı kullanılabilir.";
+        public static string CategoryNotUpdated = "Kategori Güncellenemedi";
+        public static string CategoryUpdated = "Kategori Güncellendi";
+
+        public static string CategoryNotFound = "Kategori bulunamadı";
+        public static string ArticleAdded= "Makale başarıyla eklendi.";
+        public static string ArticleNotAdded = "Makale  Eklenmedi - HATA.";
+        public  static string ArticleNotList= "Makaleler Listenemedi";
+        public static string ArticleList = "Makaleler Listelendi";
+        public  static string CategoryNotList= "Kategoriler Bulunamadı";
+        public static string CategoryList = "Kategoriler Listelendi";
+        public static string ArticleNotfound= "Makale bulunamadı";
+        public static string ArticleNotUpdate="Makale Güncellenmedi";
+        public static string ArticleUpdate = "Makale Güncellendi";
+
     }
 }

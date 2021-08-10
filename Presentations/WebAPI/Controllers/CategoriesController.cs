@@ -45,6 +45,17 @@ namespace WebAPI.Controllers
                 return BadRequest(categoriesResult);
 
             return Ok(categoriesResult);
+           
+        }
+        [HttpPut("Update")]
+        public async Task<IActionResult> UpdateAsync(CategoryUpdateDto updateDto)
+        {
+            var updateResult = await _categoryService.UpdateAsync(updateDto);
+            if (!updateResult.Success)
+                return BadRequest(updateResult);
+
+            return Ok(updateResult);
+            
         }
     }
 }
