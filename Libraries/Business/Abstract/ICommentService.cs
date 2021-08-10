@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-   public interface ICommentService
+    public interface ICommentService
     {
-
         public Task<IResult> AddAsync(CommentAddDto addDto);
-        public Task<IDataResult<List<CommentDto>>> GetAllAsync();
+        public Task<IDataResult<List<CommentDto>>> GetAllAsync();  
+        public Task<IResult> DeleteAsync(CommentDeleteDto deleteDto);
         public Task<IResult> UpdateAsync(CommentUpdateDto updateDto);
+      
+
     }
 }

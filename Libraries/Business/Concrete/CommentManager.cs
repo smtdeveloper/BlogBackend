@@ -34,6 +34,20 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CommentAdded);
         }
 
+        public async Task<IResult> DeleteAsync(CommentDeleteDto deleteDto)
+        {
+          var comment = await  _commentDal.GetAsync(p => p.SecondaryId == deleteDto.SecondaryId);
+            if (comment == null)
+            
+                return new ErrorResult(Messages.CommentNotFound);
+
+
+            _mapper.Map<CommentDeleteDto, Comment>(deleteDto, comment);
+
+           
+
+        }
+
         public async Task<IDataResult<List<CommentDto>>> GetAllAsync()
         {
             var comment = await _commentDal.GetAllAsync();

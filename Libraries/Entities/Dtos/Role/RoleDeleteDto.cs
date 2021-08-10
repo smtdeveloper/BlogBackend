@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Entities.Dtos.Role
 {
-   public class RoleUpdateDto :IDto
+   public class RoleDeleteDto :IDto
     {
         public Guid SecondaryId { get; set; }
-        public string Name { get; set; }
-        public  DateTime?  UpdateAt { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime? DeleteAt { get; set; }
     }
 }
