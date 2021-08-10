@@ -12,11 +12,13 @@ namespace Business.Mappers.AutoMapper.Profiles
         public ArticleProfile()
         {
             CreateMap<ArticleAddDto, Article>()
+                 .ForMember(p => p.CreatedAt, mopt => mopt.MapFrom(o => DateTime.Now))
                  .ForMember(p => p.SecondaryId, mopt => mopt.MapFrom(o => Guid.NewGuid()));
 
             CreateMap<Article, ArticleDto>();
 
             CreateMap<ArticleUpdateDto, Article>()
+                 .ForMember(p => p.UpdatedAt, mopt => mopt.MapFrom(o => DateTime.Now))
                 .ForMember(p => p.SecondaryId, mopt => mopt.Ignore());
         }
 
