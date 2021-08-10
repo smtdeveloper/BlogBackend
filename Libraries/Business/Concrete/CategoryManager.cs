@@ -7,6 +7,7 @@ using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.Dtos.Category;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -46,6 +47,24 @@ namespace Business.Concrete
             var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
 
             return new SuccessDataResult<List<CategoryDto>>(categoryDtos, "Kategoriler listelendi.");
+        }
+
+        public async Task<IResult> UpdateAsync(CategoryUpdateDto updateDto)
+        {
+            var entity = new Category()
+            {
+                Id = Guid.NewGuid(),
+                SecondaryId = Guid.NewGuid(),
+                Name = "SA",
+                CreatedAt = DateTime.Now,
+                IsDeleted = false
+            };
+
+            var x =   _mapper.Map<CategoryUpdateDto, Category>(updateDto, entity);
+
+            _categoryDal.UpdateAsync(x);
+
+            return new Result(true);
         }
 
         private async Task<IResult> CheckCategoryNameExistAsync(string categoryName)

@@ -8,6 +8,7 @@ namespace Business.Abstract
     public interface ICategoryService
     {
         public Task<IResult> AddAsync(CategoryAddDto addDto);
+        public Task<IResult> UpdateAsync(CategoryUpdateDto updateDto);
         public Task<IDataResult<List<CategoryDto>>> GetAllAsync();
     }
 }
