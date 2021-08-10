@@ -10,7 +10,6 @@ namespace Business.Abstract
     public interface IArticleService
     {
         public Task<IResult> AddAsync(ArticleAddDto addDto);
-
         public Task<IResult> UpdateAsync(ArticleUpdateDto updateDto);
         public Task<IDataResult<List<ArticleDto>>> GetAllAsync();
     }
