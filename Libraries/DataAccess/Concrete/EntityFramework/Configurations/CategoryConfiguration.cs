@@ -16,6 +16,8 @@ namespace DataAccess.Concrete.EntityFramework.Configurations
             builder.Property(p => p.UpdatedAt).IsRequired(false);
             builder.Property(p => p.DeletedAt).IsRequired(false);
 
+            builder.HasMany(p => p.ArticleCategories).WithOne(p => p.Category).HasForeignKey(p => p.CategoryId);
+
             builder.HasQueryFilter(p => p.IsDeleted == false);
         }
     }
