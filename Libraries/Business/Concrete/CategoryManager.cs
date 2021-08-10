@@ -68,24 +68,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CategoryDto>>(categoryDtos,Messages.CategoryList);
         }
 
-        public async Task<IResult> UpdateAsync(CategoryUpdateDto updateDto)
-        {
-            var entity = new Category()
-            {
-                Id = Guid.NewGuid(),
-                SecondaryId = Guid.NewGuid(),
-                Name = "SA",
-                CreatedAt = DateTime.Now,
-                IsDeleted = false
-            };
-
-            var x =   _mapper.Map<CategoryUpdateDto, Category>(updateDto, entity);
-
-            _categoryDal.UpdateAsync(x);
-
-            return new Result(true);
-        }
-
         private async Task<IResult> CheckCategoryNameExistAsync(string categoryName)
         {
             bool isExist = await _categoryDal.IsExistsAsync(

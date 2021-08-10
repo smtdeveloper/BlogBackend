@@ -10,8 +10,5 @@ namespace Business.Abstract
         public Task<IResult> AddAsync(CategoryAddDto addDto);
         public Task<IResult> UpdateAsync(CategoryUpdateDto updateDto);
         public Task<IDataResult<List<CategoryDto>>> GetAllAsync();
-        public Task<IResult> UpdateAsync(CategoryUpdateDto updateDto);
-    
-   
     }
 }

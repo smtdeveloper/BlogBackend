@@ -1,11 +1,12 @@
 ﻿using Core.Entities.Abstract;
+using Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Concrete
 {
-   public class Article : IEntity
+    public class Article : IEntity
     {
         public Guid Id { get; set; }
         public Guid SecondaryId { get; set; }
@@ -15,5 +16,11 @@ namespace Entities.Concrete
         public string Content { get; set; }
         public bool IsDeleted { get; set; }
 
+
+        // Navigation Property
+        //public virtual User User { get; set; }
+
+
+        public virtual List<ArticleCategory> ArticleCategories { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Abstract;
 using System;
+using System.Collections.Generic;
 
 namespace Core.Entities.Concrete
 {
@@ -16,6 +17,5 @@ namespace Core.Entities.Concrete
         public byte[] PasswordSalt { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
-
     }
 }
