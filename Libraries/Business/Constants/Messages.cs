@@ -61,10 +61,14 @@
         public static string ArticleNotUpdate="Makale Güncellenmedi";
         public static string ArticleUpdate = "Makale Güncellendi";
 
-        internal static string CommentNotAdded;
-        internal static string CommentAdded;
+        public static string CommentNotAdded ="Yorum eklenemedi";
 
-        public static string CommentContentAlreadyExist { get; internal set; }
-        public static string CommentContentAvailable { get; internal set; }
+        public static string CommentAdded="Yorum eklendi";
+        public static string CommentsNotFound="Yorumlar bulunamadı";
+        public static string CommentsListed ="Yorumlar listelendi";
+        public static string CommentNotFound ="Yorum bulunamadı";
+        public static string CommentNotUpdated=" Yorum güncellenemedi";
+
+        public static string CommentUpdated = "Yorum güncellendi";
     }
 }

@@ -12,7 +12,8 @@ namespace Entities.Dtos.Comment
         public string Content { get; set; }
         public bool IsApproved { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime CreatedAt { get; set; }
+
+       // public DateTime CreatedAt { get; set; }
 
     }
 }
