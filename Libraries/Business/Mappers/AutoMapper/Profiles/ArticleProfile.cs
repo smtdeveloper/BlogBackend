@@ -20,6 +20,13 @@ namespace Business.Mappers.AutoMapper.Profiles
             CreateMap<ArticleUpdateDto, Article>()
                  .ForMember(p => p.UpdatedAt, mopt => mopt.MapFrom(o => DateTime.Now))
                 .ForMember(p => p.SecondaryId, mopt => mopt.Ignore());
+
+            CreateMap<ArticleDeleteDto, Article>()
+                .ForMember(p => p.DeletedAt, mopt => mopt.MapFrom(o => DateTime.Now))
+               .ForMember(p => p.SecondaryId, mopt => mopt.Ignore())
+               .ForMember(p => p.IsDeleted, mopt => mopt.MapFrom(o => true));
+
+
         }
 
     }

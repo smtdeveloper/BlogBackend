@@ -19,6 +19,11 @@ namespace Business.Mappers.AutoMapper.Profiles
                 .ForMember(p => p.UpdatedAt, mopt => mopt.MapFrom(o => DateTime.Now))
                 .ForMember(p => p.SecondaryId, mopt => mopt.Ignore());
 
+            CreateMap<CategoryDeleteDto, Category>()
+                .ForMember(p => p.DeletedAt, mopt => mopt.MapFrom(o => DateTime.Now))
+                .ForMember(p => p.SecondaryId, mopt => mopt.Ignore())
+                .ForMember(p => p.IsDeleted, mopt => mopt.MapFrom(o => true));
+
         }
     }
 }

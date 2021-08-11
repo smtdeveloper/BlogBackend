@@ -35,6 +35,21 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ArticleAdded);
         }
 
+        public async Task<IResult> DeleteAsync(ArticleDeleteDto deleteDto)
+        {
+           var entity =  await _articleDal.GetAsync(a => a.SecondaryId == deleteDto.SecondaryId);
+            if(entity == null)
+                return new ErrorResult(Messages.ArticleNotfound);
+
+            _mapper.Map<ArticleDeleteDto, Article>(deleteDto, entity);
+
+            bool deleteResult = await _articleDal.UpdateAsync(entity);
+            if (!deleteResult)
+                return new ErrorResult(Messages.ArticleNotDelete);
+
+            return new SuccessResult(Messages.ArticleDelete);
+        }
+
         public async Task<IDataResult<List<ArticleDto>>> GetAllAsync()
         {
               var article = await _articleDal.GetAllAsync();
@@ -44,6 +59,16 @@ namespace Business.Concrete
                 return new ErrorDataResult<List<ArticleDto>>(null, Messages.ArticleNotList);
 
             return new SuccessDataResult<List<ArticleDto>>(articleDto, Messages.ArticleList);
+        }
+
+        public async Task<IDataResult<ArticleDto>> GetArticleSecondaryIdAsync(Guid SecondaryId)
+        {
+           var entity = await _articleDal.GetAsync(a => a.SecondaryId == SecondaryId);
+            if (entity == null)
+                return new ErrorDataResult<ArticleDto>(null, Messages.ArticleIdNotList);
+
+            var ArticleDto =  _mapper.Map<ArticleDto>(entity);
+            return new SuccessDataResult<ArticleDto>(ArticleDto, Messages.ArticleIdList);
         }
 
         public async Task<IResult> UpdateAsync(ArticleUpdateDto updateDto)

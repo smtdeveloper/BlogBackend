@@ -79,5 +79,32 @@ namespace Business.Concrete
 
             return new SuccessResult(Messages.CategoryNameAvailable);
         }
+
+        public async Task<IResult> DeleteAsync(CategoryDeleteDto deleteDto)
+        {
+           var entity = await _categoryDal.GetAsync(p => p.SecondaryId == deleteDto.SecondaryId);
+            if (entity == null)
+                return new ErrorResult(Messages.CategoryNotFound);
+
+            _mapper.Map<CategoryDeleteDto, Category>(deleteDto, entity);
+
+            bool deleteResult = await _categoryDal.UpdateAsync(entity);
+            if (!deleteResult)
+                return new ErrorResult(Messages.CategoryNotDelete);
+
+            return new SuccessResult(Messages.CategoryDelete);
+        }
+
+        public async Task<IDataResult<CategoryDto>> GetCategorySecondaryIdAsync(Guid SecondaryId)
+        {
+            var category = await _categoryDal.GetAsync(c => c.SecondaryId == SecondaryId);
+            if (category == null)
+                return new ErrorDataResult<CategoryDto>(null, Messages.ArticleNotfound);
+
+            var categoryIdDtos = _mapper.Map<CategoryDto>(category);
+            
+            return new SuccessDataResult<CategoryDto>(categoryIdDtos, Messages.CategoryIdList);
+
+        }
     }
 }

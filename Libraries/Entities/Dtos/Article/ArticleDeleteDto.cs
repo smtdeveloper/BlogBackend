@@ -3,13 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Dtos.Category
+namespace Entities.Dtos.Article
 {
-   public class CategoryUpdateDto :IDto
+    public class ArticleDeleteDto :IDto
     {
         public Guid SecondaryId { get; set; }
-        public string Name { get; set; }
-    
-
     }
 }

@@ -11,6 +11,8 @@ namespace Business.Abstract
     {
         public Task<IResult> AddAsync(ArticleAddDto addDto);
         public Task<IResult> UpdateAsync(ArticleUpdateDto updateDto);
+        public Task<IResult> DeleteAsync(ArticleDeleteDto deleteDto);
         public Task<IDataResult<List<ArticleDto>>> GetAllAsync();
+        public Task<IDataResult<ArticleDto>> GetArticleSecondaryIdAsync(Guid SecondaryId);
     }
 }

@@ -5,11 +5,8 @@ using System.Text;
 
 namespace Entities.Dtos.Category
 {
-   public class CategoryUpdateDto :IDto
+  public  class CategoryDeleteDto : IDto
     {
-        public Guid SecondaryId { get; set; }
-        public string Name { get; set; }
-    
-
+        public Guid SecondaryId { get; set; } // kullanıcıdan alınan seyler burda olur sadece.
     }
 }
