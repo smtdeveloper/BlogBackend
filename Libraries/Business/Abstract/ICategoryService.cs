@@ -12,7 +12,7 @@ namespace Business.Abstract
         public Task<IResult> UpdateAsync(CategoryUpdateDto updateDto);
         public Task<IResult> DeleteAsync(CategoryDeleteDto deleteDto);
         public Task<IDataResult<List<CategoryDto>>> GetAllAsync();
-        public Task<IDataResult<CategoryDto>> GetCategorySecondaryIdAsync(Guid SecondaryId);
+        public Task<IDataResult<CategoryDto>> GetCategorySecondaryIdAsync(Guid SecondaryId); 
 
 
 
