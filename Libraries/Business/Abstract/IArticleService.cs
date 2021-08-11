@@ -9,7 +9,7 @@ namespace Business.Abstract
 {
     public interface IArticleService
     {
-        public Task<IResult> AddAsync(ArticleAddDto addDto);
+        public Task<IResult> AddAsync(ArticleAddDto addDto); 
         public Task<IResult> UpdateAsync(ArticleUpdateDto updateDto);
         public Task<IResult> DeleteAsync(ArticleDeleteDto deleteDto);
         public Task<IDataResult<List<ArticleDto>>> GetAllAsync();
