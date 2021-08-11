@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Business.Mappers.AutoMapper.Profiles
 {
-   public class CommentProfile :Profile
+    public class CommentProfile : Profile
     {
         public CommentProfile()
         {
@@ -19,8 +19,10 @@ namespace Business.Mappers.AutoMapper.Profiles
 
             CreateMap<CommentUpdateDto, Comment>()
                 .ForMember(p => p.UpdatedAt, mopt => mopt.MapFrom(o => DateTime.Now))
-                .ForMember(p => p.SecondaryId, mopt => mopt.MapFrom(o => Guid.NewGuid()));
-
+                .ForMember(p => p.SecondaryId, mopt => mopt.Ignore());
+            CreateMap<CommentDeleteDto, Category>()
+                .ForMember(p => p.DeletedAt, mopt => mopt.MapFrom(o => DateTime.Now))
+                .ForMember(p => p.SecondaryId, mopt => mopt.Ignore());
         }
     }
 }

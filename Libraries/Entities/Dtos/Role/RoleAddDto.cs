@@ -8,5 +8,6 @@ namespace Entities.Dtos.Role
     public class RoleAddDto :IDto
     {
         public string  Name{ get; set; }
+        public DateTime CreateAt { get; set; }
     }
 }
